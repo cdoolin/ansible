@@ -1,0 +1,11 @@
+---
+- hosts: desktops
+  tasks:
+    - name: update cache
+      become: true
+      tags: always
+      apt:
+        update_cache: yes
+        upgrade: dist
+        autoremove: yes
+        clean: yes
