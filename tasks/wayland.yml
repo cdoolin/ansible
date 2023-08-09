@@ -1,8 +1,0 @@
-- name: Install wayland apps
-  become: true
-  apt:
-    name:
-      - wl-clipboard
-      - waypipe
-      - foot
-    state: present

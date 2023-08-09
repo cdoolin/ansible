@@ -1,0 +1,14 @@
+- name: Install wayland apps
+  become: true
+  apt:
+    name:
+      - wl-clipboard
+      - waypipe
+      - foot
+    state: present
+
+- name: Link ~./config/foot
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/c/dotfiles/config/foot"
+    dest: "{{ ansible_env.HOME }}/.config/foot"
+    state: link

@@ -6,4 +6,5 @@
       - cmake
       - vim
       - git
+      - btop
     state: present

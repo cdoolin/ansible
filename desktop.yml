@@ -9,5 +9,6 @@
 
   tasks:
     - import_tasks: "tasks/basics.yml"
-    - import_tasks: "tasks/wayland.yml"
     - import_tasks: "tasks/dotfiles.yml"
+    - import_tasks: "tasks/gui.yml"
+    - import_tasks: "tasks/gui-wayland.yml"

@@ -1,0 +1,12 @@
+- name: Install Alacritty
+  become: true
+  apt:
+    name:
+      - alacritty
+    state: present
+
+- name: Link ~./config/alacritty
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/c/dotfiles/config/alacritty"
+    dest: "{{ ansible_env.HOME }}/.config/alacritty"
+    state: link
