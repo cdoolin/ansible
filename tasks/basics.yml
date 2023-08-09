@@ -1,0 +1,9 @@
+- name: Install basic apps
+  become: true
+  apt:
+    name:
+      - build-essential
+      - cmake
+      - vim
+      - git
+    state: present

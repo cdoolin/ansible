@@ -1,0 +1,34 @@
+- name: Clone dotfiles
+  tags:
+    - dotfiles
+  ansible.builtin.git:
+    repo: "https://github.com/cdoolin/dotfiles.git"
+    dest: "{{ ansible_env.HOME }}/c/dotfiles"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    version: master
+
+- name: Link ~/bin
+  tags:
+    - dotfiles
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/c/dotfiles/bin"
+    dest: "{{ ansible_env.HOME }}/bin"
+    state: link
+
+- name: Link ~/.local/share/fonts
+  tags:
+    - dotfiles
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/c/dotfiles/share/fonts"
+    dest: "{{ ansible_env.HOME }}/.local/share/fonts"
+    state: link
+
+- name: Link ~/.config/environment.d
+  tags:
+    - dotfiles
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/c/dotfiles/config/environment.d"
+    dest: "{{ ansible_env.HOME }}/.config/environment.d"
+    state: link

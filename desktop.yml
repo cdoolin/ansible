@@ -1,0 +1,13 @@
+---
+- hosts: desktops
+  pre_tasks:
+    - name: update cache
+      become: true
+      tags: always
+      apt:
+        update_cache: yes
+
+  tasks:
+    - import_tasks: "tasks/basics.yml"
+    - import_tasks: "tasks/wayland.yml"
+    - import_tasks: "tasks/dotfiles.yml"

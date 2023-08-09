@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: true
+  pre_tasks:
+    - name: install updates (apt)
+      tags: always
+      apt:
+        upgrade: dist
+        update_cache: yes
+
+- hosts: desktops
+  tasks:
+    - import_tasks: "tasks/wayland.yml"
+    - import_tasks: "tasks/basics.yml"
