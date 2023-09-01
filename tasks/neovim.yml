@@ -1,0 +1,22 @@
+- name: Add Neovim PPA
+  become: true
+  apt_repository:
+    repo: "ppa:neovim-ppa/unstable"
+    state: present
+  tags: &tags_for_neovim ["cli", "nvim"]
+
+- name: Install Neovim
+  become: true
+  apt:
+    name:
+      - neovim
+      - python3-neovim
+    state: present
+  tags: *tags_for_neovim
+
+- name: Link ~/.config/nvim
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/c/dotfiles/config/nvim"
+    dest: "{{ ansible_env.HOME }}/.config/nvim"
+    state: link
+  tags: *tags_for_neovim
