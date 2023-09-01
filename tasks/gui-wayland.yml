@@ -3,6 +3,7 @@
   apt:
     name:
       - wl-clipboard
+      - wdisplays
       - waypipe
       - foot
     state: present
