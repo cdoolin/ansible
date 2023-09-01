@@ -1,0 +1,23 @@
+- name: Install sway and desktop requirements
+  become: true
+  apt:
+    name:
+      - sway
+      - waybar
+      - slurp
+      - grim
+      - brightnessctl
+      - fuzzel
+    state: present
+
+- name: Link ~./config/sway
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/c/dotfiles/config/sway"
+    dest: "{{ ansible_env.HOME }}/.config/sway"
+    state: link
+
+- name: Link ~./config/waybar
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/c/dotfiles/config/waybar"
+    dest: "{{ ansible_env.HOME }}/.config/waybar"
+    state: link

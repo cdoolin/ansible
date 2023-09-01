@@ -12,3 +12,4 @@
     - import_tasks: "tasks/dotfiles.yml"
     - import_tasks: "tasks/gui.yml"
     - import_tasks: "tasks/gui-wayland.yml"
+    - import_tasks: "tasks/sway.yml"
