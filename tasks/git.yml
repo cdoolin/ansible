@@ -1,0 +1,13 @@
+- name: Git email
+  git_config:
+    name: user.email
+    scope: global
+    value: "callum@resolvedinstruments.com"
+  tags: ["git"]
+
+- name: Git name
+  git_config:
+    name: user.name
+    scope: global
+    value: "Callum Doolin"
+  tags: ["git"]

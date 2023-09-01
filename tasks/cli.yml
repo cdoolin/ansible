@@ -6,6 +6,8 @@
       - fish
       - lsd
       - bat
+      - ripgrep
+      - fzf
     state: present
   tags: &tags_for_cli ["cli"]
 
