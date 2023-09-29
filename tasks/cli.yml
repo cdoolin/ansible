@@ -8,6 +8,7 @@
       - bat
       - ripgrep
       - fzf
+      - fd-find
     state: present
   tags: &tags_for_cli ["cli"]
 
