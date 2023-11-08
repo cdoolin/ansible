@@ -1,0 +1,8 @@
+- name: Install latex
+  become: true
+  apt:
+    name:
+      - texlive
+      - texlive-xetex
+      - latexmk
+    state: present
