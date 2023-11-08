@@ -7,4 +7,5 @@
       - vim
       - git
       - btop
+      - curl
     state: present

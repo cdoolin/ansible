@@ -8,20 +8,35 @@
       - bat
       - ripgrep
       - fzf
+      - zsh
     state: present
   tags: &tags_for_cli ["cli"]
 
-- name: Link ~/config/tmux
+- name: Link ~/.config/tmux
   ansible.builtin.file:
     src: "{{ ansible_env.HOME }}/c/dotfiles/config/tmux"
     dest: "{{ ansible_env.HOME }}/.config/tmux"
     state: link
   tags: *tags_for_cli
 
-- name: Link ~/config/fish
+- name: Link ~/.config/fish
   ansible.builtin.file:
     src: "{{ ansible_env.HOME }}/c/dotfiles/config/fish"
     dest: "{{ ansible_env.HOME }}/.config/fish"
+    state: link
+  tags: *tags_for_cli
+
+- name: Link ~/.zshrc
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/c/dotfiles/zshrc"
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+    state: link
+  tags: *tags_for_cli
+
+- name: Link ~/.config/antigen
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/c/dotfiles/config/antigen"
+    dest: "{{ ansible_env.HOME }}/.config/antigen"
     state: link
   tags: *tags_for_cli
 
@@ -32,9 +47,9 @@
     state: link
   tags: *tags_for_cli
 
-- name: Change shell to fish
+- name: Change shell to zsh
   become: true
   user:
     name: "{{ ansible_env.USER }}"
-    shell: "/usr/bin/fish"
+    shell: "/usr/bin/zsh"
   tags: *tags_for_cli

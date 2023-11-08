@@ -2,6 +2,7 @@
   become: true
   apt:
     name:
+      - xdg-desktop-portal-wlr
       - wl-clipboard
       - wdisplays
       - waypipe
