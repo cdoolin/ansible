@@ -9,6 +9,7 @@
       - ripgrep
       - fzf
       - zsh
+      - fd-find
     state: present
   tags: &tags_for_cli ["cli"]
 
