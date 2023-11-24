@@ -7,6 +7,7 @@
       - wdisplays
       - waypipe
       - foot
+      - wtype
     state: present
 
 - name: Link ~./config/foot
