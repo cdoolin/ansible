@@ -3,6 +3,7 @@
     path: "{{ ansible_env.HOME }}/.cargo/bin/rustup"
   changed_when: false
   register: rustup_bin
+  tags: &tags_for_task ["rust", "starship"]
 
 - when: not rustup_bin.stat.exists
   block:
@@ -22,13 +23,10 @@
       file:
         path: /tmp/rustup.sh
         state: absent
-
-- name: Install starship
-  ansible.builtin.command:
-    cmd: "{{ ansible_env.HOME }}/.cargo/bin/cargo install starship"
-    creates: "{{ ansible_env.HOME }}/.cargo/bin/starship"
+  tags: *tags_for_task
 
 - name: Install fnm
   ansible.builtin.command:
     cmd: "{{ ansible_env.HOME }}/.cargo/bin/cargo install fnm"
     creates: "{{ ansible_env.HOME }}/.cargo/bin/fnm"
+  tags: *tags_for_task

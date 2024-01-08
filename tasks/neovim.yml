@@ -3,7 +3,7 @@
   apt_repository:
     repo: "ppa:neovim-ppa/unstable"
     state: present
-  tags: &tags_for_neovim ["cli", "nvim"]
+  tags: &tags_for_task ["neovim"]
 
 - name: Install Neovim
   become: true
@@ -12,11 +12,11 @@
       - neovim
       - python3-neovim
     state: present
-  tags: *tags_for_neovim
+  tags: *tags_for_task
 
 - name: Link ~/.config/nvim
   ansible.builtin.file:
     src: "{{ ansible_env.HOME }}/c/dotfiles/config/nvim"
     dest: "{{ ansible_env.HOME }}/.config/nvim"
     state: link
-  tags: *tags_for_neovim
+  tags: *tags_for_task

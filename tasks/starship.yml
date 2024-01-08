@@ -1,0 +1,14 @@
+# requires rust, dotfiles
+
+- name: Install starship
+  ansible.builtin.command:
+    cmd: "{{ ansible_env.HOME }}/.cargo/bin/cargo install starship"
+    creates: "{{ ansible_env.HOME }}/.cargo/bin/starship"
+  tags: &tags_for_task ["starship"]
+
+- name: Link ~/.config/starship.toml
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/c/dotfiles/config/starship.toml"
+    dest: "{{ ansible_env.HOME }}/.config/starship.toml"
+    state: link
+  tags: *tags_for_task

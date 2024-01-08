@@ -5,3 +5,6 @@ ubuntu23
 ubuntu-z13
 minipc
 
+[servers]
+ubuntu23-server-nvidia
+
