@@ -18,3 +18,5 @@
     - import_tasks: "tasks/gui.yml"
     - import_tasks: "tasks/gui-wayland.yml"
     - import_tasks: "tasks/sway.yml"
+    - import_tasks: "tasks/vscode.yml"
+
