@@ -30,7 +30,15 @@
       -----END PGP PUBLIC KEY BLOCK-----
 
 
+  register: vscode_repo
   tags: &tags_for_task ["vscode"]
+
+- name: Update apt cache
+  become: true
+  ansible.builtin.apt:
+    update_cache: yes
+  when: vscode_repo.changed
+  tags: *tags_for_task
 
 - name: Install VSCode
   become: true
@@ -38,5 +46,4 @@
     name: 
       - code
     state: latest
-    update_cache: yes
   tags: *tags_for_task
